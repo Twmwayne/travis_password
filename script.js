@@ -14,18 +14,53 @@ function isNumeric(num){
 }
 
 function generatePassword() {
-  var lengthstr = window.prompt ("How mandy characters do you want in your password?:", "");
-  if (lengthstr == "")
-  {
+  var characterCheck = "";
+  var lengthInt;
+  var lengthStr = window.prompt ("How mandy characters do you want in your password?:", "");
+  if (lengthStr == "")
+    {
     alert("Error! Input does not meet criteria.");
     return "";
-  }
+    }
   
-  if (isNumeric(lengthstr) == false)
-  {
+  if (isNumeric(lengthStr) == false)
+    {
     alert("Error! Not a number.");
-  }
+    }
 
+  lengthInt = parseInt(lengthStr);
+  if (lengthInt < 8)
+    {
+    alert("Error! Password must be greater than 7");
+    return "";
+    }
+  if (lengthInt > 128)
+    {
+    alert("Error! Password must be less than 129");
+    return "";
+    }
+  if (window.confirm ("Do you want the password to include special characters", "") == true)
+    {
+      characterCheck += "!#@$%^&*()_+=-[]{};:,.<>?";
+    }
+  if (window.confirm ("Do you want the password to include upper case letters?", "") == true)
+    {
+      characterCheck += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+  if (window.confirm ("Do you want the password to include lower case letters?", "") == true)
+    {
+      characterCheck += "abcdefghijklmnopqrstuvwxyz";
+    }
+  if (window.confirm ("Do you want the password to include numbers?", "") == true)
+    {
+      characterCheck += "0123456789";
+    }
+  if (characterCheck == "")
+    {
+    alert("Error! No input");
+    return "";
+    }
+  alert(characterCheck);
 }
 // Write password to the #password input
 function writePassword() {
