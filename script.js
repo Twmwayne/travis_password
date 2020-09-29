@@ -1,6 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function generatePassword() {
+  var lengthstr = window.prompt ("How mandy characters do you want in your password?:", "");
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
