@@ -28,21 +28,21 @@ function generatePassword() {
   
   if (isNumeric(lengthStr) == false)
     {
-    alert("Error! Not a number.");
+      alert("Error! Not a number.");
     }
 
   lengthInt = parseInt(lengthStr);
   if (lengthInt < 8)
     {
-    alert("Error! Password must be greater than 7");
-    return "";
+      alert("Error! Password must be greater than 7");
+      return "";
     }
   if (lengthInt > 128)
     {
-    alert("Error! Password must be less than 129");
-    return "";
+      alert("Error! Password must be less than 129");
+      return "";
     }
-  if (window.confirm ("Do you want the password to include special characters", "") == true)
+  if (window.confirm ("Do you want the password to include special characters?", "") == true)
     {
       characterCheck += "!#@$%^&*()_+=-[]{};:,.<>?";
     }
@@ -60,8 +60,8 @@ function generatePassword() {
     }
   if (characterCheck == "")
     {
-    alert("Error! No input");
-    return "";
+      alert("Error! No input");
+      return "";
     }
 
     characterCheckLength = characterCheck.length;
